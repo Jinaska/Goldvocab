@@ -113,19 +113,19 @@
 <body>
 <div class="header">
   <h1>金フレ 単語クイズ</h1>
-  <div class="subtitle">英語 → 日本語 4択 ・ 200語</div>
+  <div class="subtitle">英語 → 日本語 4択 ・ 400語</div>
 </div>
 <div class="container">
   <!-- Start Screen -->
   <div id="startScreen" class="result">
     <h2>学習モードを選択</h2>
     <div class="mode-tabs" style="margin-top:20px;">
-      <div class="mode-tab active" id="tabAll" onclick="switchTab('all')">全単語<span class="count">200</span></div>
+      <div class="mode-tab active" id="tabAll" onclick="switchTab('all')">全単語<span class="count">400</span></div>
       <div class="mode-tab" id="tabRange" onclick="switchTab('range')">範囲指定<span class="count">20語ずつ</span></div>
       <div class="mode-tab" id="tabReview" onclick="switchTab('review')">復習<span class="count" id="countReview">0</span></div>
     </div>
     <div id="panelAll">
-      <p class="detail">全200問からランダムに出題します。</p>
+      <p class="detail">全400問からランダムに出題します。</p>
       <button class="action-btn primary" onclick="startAll()">スタート</button>
     </div>
     <div id="panelRange" class="hidden">
@@ -141,6 +141,16 @@
         <button class="range-btn" onclick="startRange(140,160)">No.141–160<span class="range-label">estimate〜regular</span></button>
         <button class="range-btn" onclick="startRange(160,180)">No.161–180<span class="range-label">quarter〜downtown</span></button>
         <button class="range-btn" onclick="startRange(180,200)">No.181–200<span class="range-label">headquarters〜crew</span></button>
+        <button class="range-btn" onclick="startRange(200,220)">No.201–220<span class="range-label">comfortable〜method</span></button>
+        <button class="range-btn" onclick="startRange(220,240)">No.221–240<span class="range-label">agreement〜statement</span></button>
+        <button class="range-btn" onclick="startRange(240,260)">No.241–260<span class="range-label">tip〜monitor</span></button>
+        <button class="range-btn" onclick="startRange(260,280)">No.261–280<span class="range-label">journal〜familiar</span></button>
+        <button class="range-btn" onclick="startRange(280,300)">No.281–300<span class="range-label">exactly〜preparation</span></button>
+        <button class="range-btn" onclick="startRange(300,320)">No.301–320<span class="range-label">suitable〜worth</span></button>
+        <button class="range-btn" onclick="startRange(320,340)">No.321–340<span class="range-label">cooperation〜shortly</span></button>
+        <button class="range-btn" onclick="startRange(340,360)">No.341–360<span class="range-label">diet〜labor</span></button>
+        <button class="range-btn" onclick="startRange(360,380)">No.361–380<span class="range-label">valuable〜proceed</span></button>
+        <button class="range-btn" onclick="startRange(380,400)">No.381–400<span class="range-label">connection〜atmosphere</span></button>
       </div>
     </div>
     <div id="panelReview" class="hidden">
@@ -377,7 +387,217 @@ const ALL_WORDS = [
   { en: "general", ja: "一般的な" },
   { en: "degree", ja: "学位" },
   { en: "entire", ja: "全体の" },
-  { en: "crew", ja: "チーム" }
+  { en: "crew", ja: "チーム" },
+  // 201-220
+  { en: "comfortable", ja: "快適な" },
+  { en: "search", ja: "検索" },
+  { en: "photography", ja: "写真撮影" },
+  { en: "maintain", ja: "維持管理する" },
+  { en: "demand", ja: "需要" },
+  { en: "involve", ja: "巻き込む" },
+  { en: "improvement", ja: "改善" },
+  { en: "postpone", ja: "延期する" },
+  { en: "advise", ja: "勧める" },
+  { en: "obtain", ja: "得る" },
+  { en: "immediately", ja: "すぐに" },
+  { en: "electronic", ja: "電子の" },
+  { en: "highly", ja: "非常に" },
+  { en: "deal", ja: "取引" },
+  { en: "regarding", ja: "〜に関する" },
+  { en: "determine", ja: "特定する" },
+  { en: "complaint", ja: "苦情" },
+  { en: "division", ja: "部門" },
+  { en: "retire", ja: "退職する" },
+  { en: "method", ja: "方法" },
+  // 221-240
+  { en: "agreement", ja: "契約" },
+  { en: "celebration", ja: "お祝い" },
+  { en: "modern", ja: "現代の" },
+  { en: "standard", ja: "基準" },
+  { en: "responsible", ja: "責任がある" },
+  { en: "enclose", ja: "同封する" },
+  { en: "specific", ja: "特定の" },
+  { en: "renew", ja: "更新する" },
+  { en: "definitely", ja: "絶対に" },
+  { en: "destination", ja: "目的地" },
+  { en: "district", ja: "地区" },
+  { en: "leading", ja: "一流の" },
+  { en: "regulation", ja: "規則" },
+  { en: "mayor", ja: "市長" },
+  { en: "ability", ja: "能力" },
+  { en: "temporary", ja: "臨時の" },
+  { en: "architect", ja: "建築家" },
+  { en: "affect", ja: "影響する" },
+  { en: "efficient", ja: "効率的な" },
+  { en: "statement", ja: "明細書" },
+  // 241-260
+  { en: "tip", ja: "ヒント" },
+  { en: "admission", ja: "入場料" },
+  { en: "arrival", ja: "到着" },
+  { en: "profit", ja: "利益" },
+  { en: "complex", ja: "複合施設" },
+  { en: "insurance", ja: "保険" },
+  { en: "guarantee", ja: "保証する" },
+  { en: "finalize", ja: "仕上げる" },
+  { en: "related", ja: "関連した" },
+  { en: "entry", ja: "エントリー" },
+  { en: "establish", ja: "設立する" },
+  { en: "recognize", ja: "認める" },
+  { en: "demonstrate", ja: "実演する" },
+  { en: "landscaping", ja: "造園" },
+  { en: "tax", ja: "税金" },
+  { en: "grant", ja: "助成金" },
+  { en: "earn", ja: "得る" },
+  { en: "full-time", ja: "常勤の" },
+  { en: "deposit", ja: "保証金" },
+  { en: "monitor", ja: "チェックする" },
+  // 261-280
+  { en: "journal", ja: "専門誌" },
+  { en: "reward", ja: "報酬" },
+  { en: "status", ja: "状況" },
+  { en: "nearly", ja: "ほとんど" },
+  { en: "approach", ja: "手法" },
+  { en: "content", ja: "中身" },
+  { en: "flyer", ja: "チラシ" },
+  { en: "automobile", ja: "自動車" },
+  { en: "frequently", ja: "頻繁に" },
+  { en: "various", ja: "さまざまな" },
+  { en: "electric", ja: "電気の" },
+  { en: "particular", ja: "特定の" },
+  { en: "legal", ja: "法律の" },
+  { en: "willing", ja: "構わない" },
+  { en: "properly", ja: "きちんと" },
+  { en: "claim", ja: "請求" },
+  { en: "drawing", ja: "抽選会" },
+  { en: "flavor", ja: "味" },
+  { en: "graduate", ja: "卒業する" },
+  { en: "familiar", ja: "よく知っている" },
+  // 281-300
+  { en: "exactly", ja: "正確に" },
+  { en: "ideal", ja: "理想的な" },
+  { en: "neighborhood", ja: "地域" },
+  { en: "traditional", ja: "伝統的な" },
+  { en: "explore", ja: "探索する" },
+  { en: "appropriate", ja: "適切な" },
+  { en: "departure", ja: "出発" },
+  { en: "quantity", ja: "量" },
+  { en: "minimum", ja: "最低限" },
+  { en: "identify", ja: "特定する" },
+  { en: "satisfied", ja: "満足した" },
+  { en: "environmental", ja: "環境の" },
+  { en: "former", ja: "元の" },
+  { en: "decade", ja: "10年間" },
+  { en: "mostly", ja: "ほとんど" },
+  { en: "initial", ja: "最初の" },
+  { en: "significant", ja: "かなりの" },
+  { en: "educational", ja: "教育の" },
+  { en: "decline", ja: "断る" },
+  { en: "preparation", ja: "準備" },
+  // 301-320
+  { en: "suitable", ja: "適した" },
+  { en: "priority", ja: "優先事項" },
+  { en: "brief", ja: "簡潔な" },
+  { en: "reasonable", ja: "手頃な" },
+  { en: "setting", ja: "設定" },
+  { en: "forecast", ja: "予報" },
+  { en: "fuel", ja: "燃料" },
+  { en: "campus", ja: "敷地" },
+  { en: "found", ja: "設立する" },
+  { en: "agricultural", ja: "農業の" },
+  { en: "donation", ja: "寄付" },
+  { en: "anniversary", ja: "周年記念日" },
+  { en: "clerk", ja: "店員" },
+  { en: "aware", ja: "気づいている" },
+  { en: "progress", ja: "進行" },
+  { en: "overall", ja: "全体の" },
+  { en: "delighted", ja: "大いに喜んで" },
+  { en: "emphasize", ja: "強調する" },
+  { en: "vote", ja: "投票する" },
+  { en: "worth", ja: "価値がある" },
+  // 321-340
+  { en: "cooperation", ja: "協力" },
+  { en: "structure", ja: "構造" },
+  { en: "combine", ja: "組み合わせる" },
+  { en: "automatically", ja: "自動的に" },
+  { en: "contribute", ja: "貢献する" },
+  { en: "institute", ja: "専門学校" },
+  { en: "completely", ja: "完全に" },
+  { en: "achieve", ja: "達成する" },
+  { en: "function", ja: "機能する" },
+  { en: "duty", ja: "職務" },
+  { en: "fare", ja: "運賃" },
+  { en: "prevent", ja: "防ぐ" },
+  { en: "confident", ja: "自信がある" },
+  { en: "enable", ja: "可能にする" },
+  { en: "athletic", ja: "運動用の" },
+  { en: "impact", ja: "影響" },
+  { en: "gain", ja: "得る" },
+  { en: "locate", ja: "見つける" },
+  { en: "background", ja: "経歴" },
+  { en: "shortly", ja: "すぐに" },
+  // 341-360
+  { en: "diet", ja: "食事" },
+  { en: "income", ja: "収入" },
+  { en: "proof", ja: "証明" },
+  { en: "occasion", ja: "行事" },
+  { en: "measure", ja: "測る" },
+  { en: "basis", ja: "基準" },
+  { en: "occur", ja: "起こる" },
+  { en: "complicated", ja: "複雑な" },
+  { en: "absolutely", ja: "本当に" },
+  { en: "emergency", ja: "緊急時" },
+  { en: "analyze", ja: "分析する" },
+  { en: "physical", ja: "物理的な" },
+  { en: "praise", ja: "ほめる" },
+  { en: "observe", ja: "観察する" },
+  { en: "reputation", ja: "評判" },
+  { en: "aspect", ja: "側面" },
+  { en: "appearance", ja: "外観" },
+  { en: "accompany", ja: "付き添う" },
+  { en: "generous", ja: "寛大な" },
+  { en: "labor", ja: "労働" },
+  // 361-380
+  { en: "valuable", ja: "貴重な" },
+  { en: "extremely", ja: "非常に" },
+  { en: "soil", ja: "土壌" },
+  { en: "relatively", ja: "比較的" },
+  { en: "appeal", ja: "訴える" },
+  { en: "eager", ja: "熱望している" },
+  { en: "storm", ja: "嵐" },
+  { en: "lack", ja: "不足" },
+  { en: "essential", ja: "不可欠な" },
+  { en: "reflect", ja: "反映する" },
+  { en: "surround", ja: "囲む" },
+  { en: "afterward(s)", ja: "あとで" },
+  { en: "closely", ja: "密接に" },
+  { en: "permanent", ja: "常設の" },
+  { en: "deserve", ja: "値する" },
+  { en: "existing", ja: "既存の" },
+  { en: "regret", ja: "残念に思う" },
+  { en: "treatment", ja: "処理" },
+  { en: "dozen", ja: "12の" },
+  { en: "proceed", ja: "進む" },
+  // 381-400
+  { en: "connection", ja: "接続" },
+  { en: "rush", ja: "急ぎの" },
+  { en: "preserve", ja: "保護する" },
+  { en: "crop", ja: "収穫高" },
+  { en: "aim", ja: "向ける" },
+  { en: "normally", ja: "普通は" },
+  { en: "attempt", ja: "試み" },
+  { en: "factor", ja: "要素" },
+  { en: "election", ja: "選挙" },
+  { en: "promising", ja: "有望な" },
+  { en: "accurate", ja: "正確な" },
+  { en: "finding(s)", ja: "結果" },
+  { en: "slightly", ja: "わずかに" },
+  { en: "native", ja: "固有の" },
+  { en: "economic", ja: "経済の" },
+  { en: "settle", ja: "慣れる" },
+  { en: "practical", ja: "実践的な" },
+  { en: "scholarship", ja: "奨学金" },
+  { en: "import", ja: "輸入する" },
+  { en: "atmosphere", ja: "雰囲気" }
 ];
 
 let mode = 'all';
