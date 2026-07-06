@@ -71,6 +71,13 @@
   }
   .next-btn:hover { transform: scale(1.02); }
   .next-btn:active { transform: scale(0.98); }
+  .home-btn {
+    width: 100%; padding: 12px; font-size: 0.85rem; font-weight: 600;
+    border: 2px solid #475569; border-radius: 12px;
+    background: transparent; color: #94a3b8; cursor: pointer;
+    margin-top: 8px; transition: all 0.2s;
+  }
+  .home-btn:hover { border-color: #94a3b8; color: #e2e8f0; }
   .result { text-align: center; padding: 40px 20px; }
   .result h2 { font-size: 1.6rem; color: #f59e0b; margin-bottom: 12px; }
   .result .big-score { font-size: 3.5rem; font-weight: 800; color: #f8fafc; margin: 16px 0; }
@@ -107,32 +114,25 @@
     font-size: 0.8rem; color: #64748b; text-transform: uppercase;
     letter-spacing: 1.5px; margin-bottom: 8px; margin-top: 8px;
   }
-  .home-btn {
-    width: 100%; padding: 12px; font-size: 0.85rem; font-weight: 600;
-    border: 2px solid #475569; border-radius: 12px;
-    background: transparent; color: #94a3b8; cursor: pointer;
-    margin-top: 8px; transition: all 0.2s;
-  }
-  .home-btn:hover { border-color: #94a3b8; color: #e2e8f0; }
   .hidden { display: none !important; }
 </style>
 </head>
 <body>
 <div class="header">
   <h1>金フレ 単語クイズ</h1>
-  <div class="subtitle">英語 → 日本語 4択 ・ 400語</div>
+  <div class="subtitle">英語 → 日本語 4択 ・ 500語</div>
 </div>
 <div class="container">
   <!-- Start Screen -->
   <div id="startScreen" class="result">
     <h2>学習モードを選択</h2>
     <div class="mode-tabs" style="margin-top:20px;">
-      <div class="mode-tab active" id="tabAll" onclick="switchTab('all')">全単語<span class="count">400</span></div>
+      <div class="mode-tab active" id="tabAll" onclick="switchTab('all')">全単語<span class="count">500</span></div>
       <div class="mode-tab" id="tabRange" onclick="switchTab('range')">範囲指定<span class="count">20語ずつ</span></div>
       <div class="mode-tab" id="tabReview" onclick="switchTab('review')">復習<span class="count" id="countReview">0</span></div>
     </div>
     <div id="panelAll">
-      <p class="detail">全400問からランダムに出題します。</p>
+      <p class="detail">全500問からランダムに出題します。</p>
       <button class="action-btn primary" onclick="startAll()">スタート</button>
     </div>
     <div id="panelRange" class="hidden">
@@ -158,6 +158,11 @@
         <button class="range-btn" onclick="startRange(340,360)">No.341–360<span class="range-label">diet〜labor</span></button>
         <button class="range-btn" onclick="startRange(360,380)">No.361–380<span class="range-label">valuable〜proceed</span></button>
         <button class="range-btn" onclick="startRange(380,400)">No.381–400<span class="range-label">connection〜atmosphere</span></button>
+        <button class="range-btn" onclick="startRange(400,420)">No.401–420<span class="range-label">supervisor〜vendor</span></button>
+        <button class="range-btn" onclick="startRange(420,440)">No.421–440<span class="range-label">inspection〜payroll</span></button>
+        <button class="range-btn" onclick="startRange(440,460)">No.441–460<span class="range-label">recruit〜alternative</span></button>
+        <button class="range-btn" onclick="startRange(460,480)">No.461–480<span class="range-label">historic〜outline</span></button>
+        <button class="range-btn" onclick="startRange(480,500)">No.481–500<span class="range-label">approximately〜undergo</span></button>
       </div>
     </div>
     <div id="panelReview" class="hidden">
@@ -168,7 +173,7 @@
   <!-- Quiz Screen -->
   <div id="quizScreen" class="hidden">
     <div class="stats">
-      <span>問 <strong id="qNum">1</strong> / <strong id="qTotal">200</strong></span>
+      <span>問 <strong id="qNum">1</strong> / <strong id="qTotal">500</strong></span>
       <span>正解: <span class="score" id="scoreNum">0</span>　不正解: <span class="wrong" id="wrongNum">0</span></span>
     </div>
     <div class="progress-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
@@ -605,7 +610,112 @@ const ALL_WORDS = [
   { en: "practical", ja: "実践的な" },
   { en: "scholarship", ja: "奨学金" },
   { en: "import", ja: "輸入する" },
-  { en: "atmosphere", ja: "雰囲気" }
+  { en: "atmosphere", ja: "雰囲気" },
+  // 401-420
+  { en: "supervisor", ja: "上司" },
+  { en: "storage", ja: "保管" },
+  { en: "invoice", ja: "請求書" },
+  { en: "associate", ja: "関連づける" },
+  { en: "revise", ja: "修正する" },
+  { en: "appliance", ja: "家電製品" },
+  { en: "ensure", ja: "確実にする" },
+  { en: "catering", ja: "ケータリング" },
+  { en: "inventory", ja: "在庫" },
+  { en: "warranty", ja: "保証" },
+  { en: "specialize", ja: "専門にする" },
+  { en: "retail", ja: "小売り" },
+  { en: "strategy", ja: "戦略" },
+  { en: "consult", ja: "相談する" },
+  { en: "beverage", ja: "飲み物" },
+  { en: "notify", ja: "知らせる" },
+  { en: "agenda", ja: "議題" },
+  { en: "trail", ja: "小道" },
+  { en: "subscription", ja: "定期購読" },
+  { en: "vendor", ja: "販売業者" },
+  // 421-440
+  { en: "inspection", ja: "点検" },
+  { en: "grocery", ja: "食料雑貨店" },
+  { en: "fabric", ja: "生地" },
+  { en: "paperwork", ja: "書類" },
+  { en: "personnel", ja: "スタッフ" },
+  { en: "inquire", ja: "問い合わせる" },
+  { en: "experienced", ja: "経験豊富な" },
+  { en: "lease", ja: "賃貸借" },
+  { en: "multiple", ja: "複数の" },
+  { en: "assign", ja: "割り当てる" },
+  { en: "extension", ja: "内線" },
+  { en: "contractor", ja: "請負業者" },
+  { en: "certificate", ja: "証明書" },
+  { en: "expire", ja: "期限が切れる" },
+  { en: "assembly", ja: "組み立て" },
+  { en: "eligible", ja: "資格のある" },
+  { en: "hardware", ja: "金物類" },
+  { en: "itinerary", ja: "旅程" },
+  { en: "highlight", ja: "強調する" },
+  { en: "payroll", ja: "給与" },
+  // 441-460
+  { en: "recruit", ja: "新規採用する" },
+  { en: "banquet", ja: "宴会" },
+  { en: "venue", ja: "会場" },
+  { en: "complimentary", ja: "無料の" },
+  { en: "conclude", ja: "結論づける" },
+  { en: "sculpture", ja: "彫刻" },
+  { en: "in-person", ja: "対面の" },
+  { en: "relocate", ja: "移転させる" },
+  { en: "ingredient", ja: "食材" },
+  { en: "anticipate", ja: "予想する" },
+  { en: "affordable", ja: "手頃な" },
+  { en: "administrative", ja: "管理の" },
+  { en: "enroll", ja: "入会する" },
+  { en: "innovative", ja: "革新的な" },
+  { en: "exceed", ja: "超える" },
+  { en: "valid", ja: "有効な" },
+  { en: "refreshments", ja: "飲食物" },
+  { en: "merger", ja: "合併" },
+  { en: "craft", ja: "工芸" },
+  { en: "alternative", ja: "代わりの" },
+  // 461-480
+  { en: "historic", ja: "歴史的な" },
+  { en: "negotiate", ja: "交渉する" },
+  { en: "qualified", ja: "適任の" },
+  { en: "receptionist", ja: "受付係" },
+  { en: "pickup", ja: "引き取り" },
+  { en: "evaluate", ja: "評価する" },
+  { en: "remodel", ja: "改築する" },
+  { en: "patron", ja: "利用者" },
+  { en: "generate", ja: "生み出す" },
+  { en: "overnight", ja: "翌日配達の" },
+  { en: "revenue", ja: "収入" },
+  { en: "summary", ja: "要約" },
+  { en: "questionnaire", ja: "アンケート" },
+  { en: "tourism", ja: "観光業" },
+  { en: "prior", ja: "前の" },
+  { en: "household", ja: "家庭の" },
+  { en: "acquire", ja: "獲得する" },
+  { en: "pharmacy", ja: "薬局" },
+  { en: "oversee", ja: "監督する" },
+  { en: "outline", ja: "概要を説明する" },
+  // 481-500
+  { en: "approximately", ja: "およそ" },
+  { en: "productivity", ja: "生産性" },
+  { en: "outstanding", ja: "素晴らしい" },
+  { en: "implement", ja: "実行する" },
+  { en: "publicity", ja: "宣伝" },
+  { en: "aisle", ja: "通路" },
+  { en: "auditorium", ja: "講堂" },
+  { en: "capacity", ja: "容量" },
+  { en: "laundry", ja: "洗濯" },
+  { en: "fund-raising", ja: "募金活動" },
+  { en: "predict", ja: "予測する" },
+  { en: "reopen", ja: "再開する" },
+  { en: "machinery", ja: "機械" },
+  { en: "dealership", ja: "販売代理店" },
+  { en: "hallway", ja: "廊下" },
+  { en: "initiative", ja: "取り組み" },
+  { en: "talented", ja: "才能のある" },
+  { en: "via", ja: "〜経由で" },
+  { en: "resolve", ja: "解決する" },
+  { en: "undergo", ja: "受ける" }
 ];
 
 let mode = 'all';
